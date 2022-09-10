@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: okteto-demo
+  labels:
+    app: okteto-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: okteto-demo
+  template:
+    metadata:
+      labels:
+        app: okteto-demo
+    spec:
+      containers:
+        - name: okteto-demo
+          image: mateuszjanczak/okteto-demo:latest
+          ports:
+            - containerPort: 8080
